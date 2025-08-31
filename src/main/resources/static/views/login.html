@@ -1,0 +1,16 @@
+<div class="login-container">
+    <h2>Login</h2>
+    <form ng-submit="login()">
+        <label>Username</label>
+        <input type="text" ng-model="credentials.username" required><br><br>
+
+        <label>Password</label>
+        <input type="text" ng-model="credentials.password" required><br><br>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p ng-show="errorMessage" style="color:red;">
+        {{ errorMessage }}
+    </p>
+</div>
