@@ -26,13 +26,14 @@ public class SecurityConfig {
         .authorizeHttpRequests(auth -> auth
             .requestMatchers("/user/login",
                     "/",
-                    "/inventory.js",
+                    "/inventoryApp.js",
                     "/index.html",
                     "/favicon.ico",
                     "/js/**",
                     "/css/**",
                     "/images/**",
                     "/controllers/**",
+                    "/services/**",
                     "/views/**").permitAll()
             .anyRequest().authenticated())
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

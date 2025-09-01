@@ -1,0 +1,11 @@
+<div>
+    <h2>Inventory</h2>
+
+    <input src="text" ng-model="searchText" placeholder="Find by item name...">
+    <button ng-click="getItem()">Search</button>
+    <ul>
+        <li ng-repeat="item in items">
+            {{ item.name }} - {{ item.quantity }}
+        </li>
+    </ul>
+</div>

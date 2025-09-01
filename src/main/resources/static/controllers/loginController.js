@@ -1,4 +1,4 @@
-app.controller('LoginController', function($scope, $http){
+app.controller('LoginController', function($scope, $http, AuthService, $location){
     $scope.credentials = {username: '', password: ''};
     $scope.errorMessage = '';
 
@@ -11,9 +11,9 @@ app.controller('LoginController', function($scope, $http){
                 'Content-Type': 'application/json'
             }
         }).then(function(response){
-            console.log(response.data);
             $scope.errorMessage = '';
-            alert('Login successful!');
+            AuthService.setToken(response.data.token);
+            $location.path("/inventory");
         }, function(error) {
             $scope.errorMessage = 'Invalid username or password';
         });
