@@ -1,0 +1,18 @@
+services:
+  inventory-postgres:
+    image: postgres:12.10
+    container_name: inventory-postgres
+    ports:
+      - '5436:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password1234
+      POSTGRES_DB: inventory
+
+  inventory-app:
+    build: .
+    container_name: inventory-app
+    depends_on:
+      - inventory-postgres
+    ports:
+      - "8080:8080"
